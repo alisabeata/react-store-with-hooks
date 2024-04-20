@@ -27,22 +27,31 @@ const PRODUCTS_MOCK = [
   },
 ]
 
+// Function to configure the store with actions and initial state
 const configureStore = () => {
+  // Actions object containing all actions that can be dispatched to modify the store
   const actions = {
     TOGGLE_FAV: (currentState, productId) => {
+      // Finding the index of the product to toggle the favorite status
       const prodIndex = currentState.products.findIndex(
         (p) => p.id === productId,
       )
+      // Toggling the 'isFavorite' status of the product
       const newFavStatus = !currentState.products[prodIndex].isFavorite
+      // Creating a new products array for immutability
       const updatedProducts = [...currentState.products]
+      // Updating the product at the found index with the new favorite status
       updatedProducts[prodIndex] = {
         ...currentState.products[prodIndex],
         isFavorite: newFavStatus,
       }
+      // Returning the new state with updated products
       return { products: updatedProducts }
     },
   }
+  // Initializing the store with the actions and initial state
   initStore(actions, { products: PRODUCTS_MOCK })
 }
 
+// Exporting configureStore for use elsewhere in the application
 export default configureStore

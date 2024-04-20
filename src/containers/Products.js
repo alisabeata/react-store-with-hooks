@@ -4,7 +4,7 @@ import { useStore } from '../hooks-store/store'
 import './Products.css'
 
 const Products = (props) => {
-  const [state, dispatch] = useStore()
+  const state = useStore()[0]
 
   return (
     <ul className="products-list">

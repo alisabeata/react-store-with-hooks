@@ -1,23 +1,23 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-import './Navigation.css';
+import './Navigation.css'
 
-const Navigation = props => {
+const Navigation = (props) => {
   return (
     <header className="main-header">
       <nav>
         <ul>
           <li>
-            <NavLink to="/" exact>All Products</NavLink>
+            <Link to="/">All Products</Link>
           </li>
           <li>
-            <NavLink to="/favorites">Favorites</NavLink>
+            <Link to="/favorites">Favorites</Link>
           </li>
         </ul>
       </nav>
     </header>
-  );
-};
+  )
+}
 
-export default Navigation;
+export default Navigation
